@@ -43,7 +43,7 @@ app.post('/tableflip', function (req, res) {
   }
 
   request.post({
-    url: argv.webhook,
+    url: argv.webhook || req.body.response_url,
     form: { payload: JSON.stringify(payload) }
   }, function (err, resp, body) {
     if (err) {
